@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="wide wow-animation" lang="en">
+    <head>
+        <title>My Scheduler</title>
+        <meta name="description" content=""/>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@5.9.0/locales-all.global.min.js'></script>
+
+        <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'fr',
+            headerToolbar: {
+                left: 'prev,next',
+
+                right: 'timeGridWeek,timeGridDay,dayGridMonth'
+            },
+            dayMaxEvents: true,
+            height: 580,
+            slotDuration: '00:30',
+            slotMinTime: "08:00",
+            slotMaxTime: "20:00",
+            hiddenDays: [0],
+            initialView: 'timeGridWeek',
+            allDaySlot: false,
+            footerToolbar: false,
+            events: "/data",
+            eventColor: '#adb5bd'
+
+            });
+            calendar.render();
+        });
+
+        </script>
+
+    </head>
+
+    <body>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-xl-8">
+                        <h3>Voir disponibilités sur le planning ci-dessous.</h3>
+                        <br>
+                    </div>
+                </div>
+                <div style="width:80%; margin-left:10%; margin-top:40px">
+                    <div id='calendar'>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script>
+            window.addEventListener("DOMContentLoaded", function () {
+                flatpickr(".datetimefield", {
+                    enableTime: true,
+                    enableSeconds: true,
+                    dateFormat: "Y-m-d H:i:S",
+                });
+            });
+
+        </script>
+    </body>
+</html>
+
