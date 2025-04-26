@@ -28,9 +28,8 @@
             initialView: 'timeGridWeek',
             allDaySlot: false,
             footerToolbar: false,
-            events: "/data",
-            eventColor: '#adb5bd'
-
+            events: "http://127.0.0.1:8000/api/events",
+            eventColor: '#4169E1',
             });
             calendar.render();
         });
@@ -44,7 +43,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 col-xl-8">
-                        <h3>Voir disponibilités sur le planning ci-dessous.</h3>
+                        <h3>Vos évènements sur le planning ci-dessous.</h3>
                         <br>
                     </div>
                 </div>
@@ -55,19 +54,6 @@
                 </div>
             </div>
         </section>
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        <script>
-            window.addEventListener("DOMContentLoaded", function () {
-                flatpickr(".datetimefield", {
-                    enableTime: true,
-                    enableSeconds: true,
-                    dateFormat: "Y-m-d H:i:S",
-                });
-            });
-
-        </script>
     </body>
 </html>
 
